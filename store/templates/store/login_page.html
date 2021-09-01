@@ -1,0 +1,51 @@
+{% extends 'store/base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    
+    <div class="p-4 m-4">
+        <div class="col-lg-4  mx-auto  ">
+            <form action="/login" method="POST">
+                {% csrf_token %}
+
+                  {% if error %}
+                <!--alert-->
+                <div class="alert alert-danger" role="alert">
+                  {{error}}   
+                </div>
+                {% endif %}
+
+                <!-- email -->
+                <div class="form-group mx-auto">
+                  <label for="">Email</label>
+                  <input type="email" value="{{values.email}}" name="email" id="" class="form-control form-control-sm" placeholder="example@gmail.com">
+                  
+                </div>
+
+
+                 <!-- password -->
+                 <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="" class="form-control" placeholder="********">
+                    
+                </div>
+                 
+                <div class="form-group">
+                  <div class="p-2 m-2 mx-auto">
+                    <input class="btn btn-sm btn-info col-lg-4" type="submit" value="Log In">
+                  </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock content %}
+
+
